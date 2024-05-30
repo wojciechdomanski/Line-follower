@@ -15,7 +15,7 @@ Camera had to be adjusted, so that control horizon wouldn't be so big. Wider whe
 All of sensors/actuators interfaces are provided by Webots environment, thus integration of mentioned elements is not in scope of this project.
 
 ## Machine vision
-Originaly camera used by default in NVIDIA Jetbot used HD 1280x720 resolution, but it was decided, that there is no need for such a big array of data to be processed every itteration. In the end 160x90 resolution was considered to be good enough consensus.
+Originaly camera used by NVIDIA Jetbot operated at HD 1280x720 resolution, but it was decided, that there is no need for such a big array of data to be processed every itteration. In the end 160x90 resolution was considered to be good enough consensus.
 
 Video processing starts by aquiring current camera frame. Then the image is converted to shades of gray scale and binarized based on preconfigured treshold. After that, frame udergoes morphological skeletonization based on Zhang Suen algorithm[^4]. The workspace is then narrowed down to arch, which starts from bottom corners of the image and its middle point being at the center of an array. Algorithm then checks wether path found by skeletonization intersects the arch. If multiple intersections are detected, then the most center one is chosen. Selected array element then serves as a waypoint for controller.
 
